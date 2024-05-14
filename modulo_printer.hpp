@@ -69,7 +69,7 @@ public:
 
 	/// Constructor with base & alphabet specification.
 	modulo_printer( short base_, const std::string& alphabet_ )
-		: _base( base_ ), 
+		: _base( base_ ) 
 		{ strcpy_s( _alphabet, alphabet_.c_str() );
 		  prepare_buffer(); }
 
