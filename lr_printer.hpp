@@ -99,7 +99,7 @@ public:
 	/// Constructor with base & alphabet specification.
 	lr_printer( short base_, const std::string& alphabet_ )
 		{ set_base( base_ );
-		  strcpy_s( _alphabet, alphabet_.c_str() ); }
+		  std::strncpy( _alphabet, alphabet_.data(), alphabet_.length() ); }
 
 	/// Setter / getter for the base.
 	void set_base( short base_ )
@@ -114,7 +114,7 @@ public:
 
 	/// Setter / getter for the alphabet.
 	void set_alphabet( const std::string& alphabet_ )
-		{ strcpy_s( _alphabet, alphabet_.c_str() ); }
+		{ std::strncpy( _alphabet, alphabet_.data(), alphabet_.length() ); }
 	const auto& get_alphabet() const
 		{ return _alphabet; }
 

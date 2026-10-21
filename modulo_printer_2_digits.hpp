@@ -106,7 +106,7 @@ public:
 
 	/// Setter / getter for the alphabet.
 	void set_alphabet( const std::string& alphabet_ )
-		{ strcpy_s( _alphabet, alphabet_.c_str() );
+		{ std::strncpy( _alphabet, alphabet_.data(), alphabet_.length() );
 		  calculate_alphabet_sqr(); }
 	const std::string& get_alphabet() const
 		{ return _alphabet; }

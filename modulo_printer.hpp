@@ -70,7 +70,7 @@ public:
 	/// Constructor with base & alphabet specification.
 	modulo_printer( short base_, const std::string& alphabet_ )
 		: _base( base_ ) 
-		{ strcpy_s( _alphabet, alphabet_.c_str() );
+		{ std::strncpy( _alphabet, alphabet_.data(), alphabet_.length() );
 		  prepare_buffer(); }
 
 	/// Setter / getter for the base.
@@ -82,7 +82,7 @@ public:
 
 	/// Setter / getter for the alphabet.
 	void set_alphabet( const std::string& alphabet_ )
-		{ strcpy_s( _alphabet, alphabet_.c_str() ); }
+		{ std::strncpy( _alphabet, alphabet_.data(), alphabet_.length() ); }
 	const auto& get_alphabet() const
 		{ return _alphabet; }
 
