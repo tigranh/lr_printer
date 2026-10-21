@@ -13,7 +13,7 @@ namespace printers {
 
 
 /// This printer outputs natural numbers by obtaining digits from left
-/// to right, in pairs. For that it simply perofrms integer division over, 
+/// to right, in pairs. For that it simply performs integer division over,
 /// let's say: 1'000'000, then 10'000, then 100, and so on.
 /// In order to get what remains for next iteration, instead of calculating 
 /// remainder it does subtraction.
@@ -40,15 +40,15 @@ protected:
 	char _alphabet[ BASE_MAX ];
 
 	/// This string contains 2*|N|*|N| characters, each pair corresponding 
-	/// to pair of alphabet characters, all ordered by alphanumerical.
+	/// to pair of alphabet characters, all ordered alphanumeric.
 	/// This is where from pairs of digits will be selected for printing, 
 	/// instead of selecting digits individually.
 	char _alphabet_sqr[ BASE_MAX * BASE_MAX * 2 ];
 
 	/// Some integer types are bounded while some others are not.
-	/// This class calculates (amoung other) all powers of 'base', which fit 
+	/// This class calculates (among other) all powers of 'base', which fit
 	/// in "number_type". So for unbounded integers this calculation might 
-	/// span infinitely. Also for the bounded integers perhapes there will 
+	/// span infinitely. Also for the bounded integers perhaps there will
 	/// be no need to print large numbers.
 	/// Considering that facts, here we calculate necessary powers (an other
 	/// data) incrementally, when that is needed to print currently received
@@ -193,7 +193,7 @@ public:
 		  return ostr.write( _buffer, (buf_end - _buffer) ); }
 
 protected:
-	/// Assuming that we already have proper content in '_alphabet', calulates 
+	/// Assuming that we already have proper content in '_alphabet', calculates
 	/// and stores content of '_alphabet_sqr'.
 	void calculate_alphabet_sqr() {
 		// Clear
@@ -225,7 +225,7 @@ protected:
 	/// Appends one more row of helper data.
 	/// Generally this method will be called when the number which is 
 	/// received for printing is larger than values of current helper data.
-	/// Returns if successfully appened. Failer might happen only on overflow.
+	/// Returns if successfully appended. Failure might happen only on overflow.
 	bool append_helper_data() const {
 		// Append powers
 		const number_type new_power = _powers[ _powers_length - 1 ] * _base;

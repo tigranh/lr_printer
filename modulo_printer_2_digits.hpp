@@ -39,8 +39,8 @@ protected:
 	/// Digits of the alphabet.
 	char _alphabet[ BASE_MAX ];
 
-	/// This string contains 2*|N|*|N| characters, each pair correspoinding 
-	/// to pair of alphabet characters, all ordered by alphanumerical.
+	/// This string contains 2*|N|*|N| characters, each pair corresponding
+	/// to pair of alphabet characters, all ordered alphanumeric.
 	/// This is where from pairs of digits will be selected for printing, 
 	/// instead of selecting digits individually.
 	char _alphabet_sqr[ 2 * BASE_MAX * BASE_MAX ];
@@ -155,7 +155,7 @@ public:
 		  return ostr.write( str, length ); }
 
 protected:
-	/// Assuming that we already have proper content in '_alphabe', calulates 
+	/// Assuming that we already have proper content in '_alphabet', calculates
 	/// and stores content of '_alphabet_sqr'.
 	void calculate_alphabet_sqr() {
 		// Clear

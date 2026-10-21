@@ -13,7 +13,7 @@ namespace printers {
 
 
 /// This printer outputs natural numbers by obtaining digits from left
-/// to right. For that it simply perofrms integer division over, let's say: 
+/// to right. For that it simply performs integer division over, let's say:
 /// 1'000'000, then 100'000, then 10'000, and so on.
 /// In order to get what remains for next iteration, instead of calculating 
 /// remainder it does subtraction.
@@ -39,9 +39,9 @@ protected:
 	char _alphabet[ MAX_BASE ];
 
 	/// Some integer types are bounded while some others are not.
-	/// This class calculates (amoung other) all powers of 'base', which fit 
+	/// This class calculates (among other) all powers of 'base', which fit
 	/// in "number_type". So for unbounded integers this calculation might 
-	/// span infinitely. Also for the bounded integers perhapes there will 
+	/// span infinitely. Also for the bounded integers perhaps there will
 	/// be no need to print large numbers.
 	/// Considering that facts, here we calculate necessary powers (an other
 	/// data) incrementally, when that is needed to print currently received
@@ -174,7 +174,7 @@ protected:
 	/// Appends one more row of helper data.
 	/// Generally this method will be called when the number which is 
 	/// received for printing is larger than values of current helper data.
-	/// Returns if successfully appened. Failer might happen only on overflow.
+	/// Returns if successfully appended. Failure might happen only on overflow.
 	bool append_helper_data() const {
 		// Append powers
 		const number_type new_power = _powers[ _powers_length - 1 ] * _base;
