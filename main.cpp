@@ -129,39 +129,43 @@ int main( int argc, char* argv[] )
 		test_printer( printer );
 	}
 
+	// Compare printers' performance
+	int B;  // Base of the conversion
+	std::cout << "Please enter the base, into which nubmers should be converted: ";
+	std::cin >> B;
+
 	{
-		// Compare printers' performance
 		typedef int number_type;
 				// Run on 32-bit integers
 		const number_type start_num = 10'000'000, finish_num = 49'000'000;
 				// 8-digit numbers
 		std::cout << "Running the printers on numbers in ["
-				<< start_num << ", " << finish_num << "], 32-bit, with base=10:" << std::endl;
+				<< start_num << ", " << finish_num << "], 32-bit, with base=" 
+				<< B << ":" << std::endl;
 
 		{
 			std::cout << "\t modulo_printer: ";
-			ml::printers::modulo_printer< number_type > printer;
+			ml::printers::modulo_printer< number_type > printer( B );
 			run_printer( printer, start_num, finish_num );
 		}
 		{
 			std::cout << "\t modulo_printer_2_digits: ";
-			ml::printers::modulo_printer_2_digits< number_type > printer;
+			ml::printers::modulo_printer_2_digits< number_type > printer( B );
 			run_printer( printer, start_num, finish_num );
 		}
 		{
 			std::cout << "\t lr_printer: ";
-			ml::printers::lr_printer< number_type > printer;
+			ml::printers::lr_printer< number_type > printer( B );
 			run_printer( printer, start_num, finish_num );
 		}
 		{
 			std::cout << "\t lr_printer_2_digits: ";
-			ml::printers::lr_printer_2_digits< number_type > printer;
+			ml::printers::lr_printer_2_digits< number_type > printer( B );
 			run_printer( printer, start_num, finish_num );
 		}
 	}
 
 	{
-		// Compare printers' performance
 		typedef long long number_type;
 				// Run on 64-bit integers
 		const number_type 
@@ -169,26 +173,27 @@ int main( int argc, char* argv[] )
 				finish_num = 52'109'000'049'000'000LL;
 				// 17-digit numbers
 		std::cout << "Running the printers on numbers in ["
-				<< start_num << ", " << finish_num << "], 64-bit, with base=10:" << std::endl;
+				<< start_num << ", " << finish_num << "], 64-bit, with base=" 
+				<< B << ":" << std::endl;
 
 		{
 			std::cout << "\t modulo_printer: ";
-			ml::printers::modulo_printer< number_type > printer;
+			ml::printers::modulo_printer< number_type > printer( B );
 			run_printer( printer, start_num, finish_num );
 		}
 		{
 			std::cout << "\t modulo_printer_2_digits: ";
-			ml::printers::modulo_printer_2_digits< number_type > printer;
+			ml::printers::modulo_printer_2_digits< number_type > printer( B );
 			run_printer( printer, start_num, finish_num );
 		}
 		{
 			std::cout << "\t lr_printer: ";
-			ml::printers::lr_printer< number_type > printer;
+			ml::printers::lr_printer< number_type > printer( B );
 			run_printer( printer, start_num, finish_num );
 		}
 		{
 			std::cout << "\t lr_printer_2_digits: ";
-			ml::printers::lr_printer_2_digits< number_type > printer;
+			ml::printers::lr_printer_2_digits< number_type > printer( B );
 			run_printer( printer, start_num, finish_num );
 		}
 	}
